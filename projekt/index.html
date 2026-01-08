@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt – Bio Sat Team</title>
+    <meta name="description" content="Projektübersicht, Aufbau und wissenschaftliche Ziele des Bio Sat Teams.">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="page">
+<div class="space">
+    <div class="layer earth"></div>
+    <div class="layer stars"></div>
+    <div class="layer deep"></div>
+</div>
+
+<header class="site-header">
+    <img src="../logo.png" alt="Logo" id="logo">
+    <div class="header-content">
+        <h1>Projektübersicht</h1>
+        <p>Hier findest du alle Details zu Aufbau, wissenschaftlichem Ansatz und Sicherheitskonzept.</p>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../">Startseite</a></li>
+                <li><a href="../mission/">Mission</a></li>
+                <li><a href="../team/">Team</a></li>
+                <li><a href="../sponsoren/">Sponsoren</a></li>
+                <li><a href="../kontakt/">Kontakt</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="page-section">
+        <div class="container">
+            <span class="badge">Systemdesign</span>
+            <h2>CanSat Architektur</h2>
+            <p>Unser CanSat besteht aus drei klar getrennten Modulen: Sensorik, Probenahme und Telemetrie. So können wir jede Komponente separat testen und optimieren.</p>
+            <div class="card-grid grid-3" style="margin-top: 24px;">
+                <div class="card">
+                    <h3>Probenahme</h3>
+                    <p>Mehrstufiges Filtersystem mit kontrolliertem Luftstrom für reproduzierbare Ergebnisse.</p>
+                </div>
+                <div class="card">
+                    <h3>Datenlogger</h3>
+                    <p>Redundantes Logging auf SD-Karte plus Live-Übertragung zur Bodenstation.</p>
+                </div>
+                <div class="card">
+                    <h3>Energie</h3>
+                    <p>Effizientes Power-Management mit Notfallmodus für den Fall von Ausfällen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
+            <span class="badge">Wissenschaft</span>
+            <h2>Forschungsziele</h2>
+            <p>Wir untersuchen, wie sich biologische Partikel mit Höhe, Temperatur und Feuchtigkeit verändern. Die Messungen werden mit den Flugparametern abgeglichen.</p>
+            <div class="page-grid grid-2" style="margin-top: 24px;">
+                <div class="card">
+                    <h3>Hypothese A</h3>
+                    <p>Die Konzentration biologischer Partikel nimmt mit der Flughöhe ab.</p>
+                </div>
+                <div class="card">
+                    <h3>Hypothese B</h3>
+                    <p>Kurze Temperaturabfälle beeinflussen die Partikelzusammensetzung stärker als die Höhe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
+            <span class="badge">Sicherheit</span>
+            <h2>Risiko- & Testplan</h2>
+            <p>Vor dem Hauptstart werden Sensorik, Fallschirm und Telemetrie einzeln geprüft. Die Ergebnisse dokumentieren wir im Testlog.</p>
+            <div class="card-grid grid-3" style="margin-top: 24px;">
+                <div class="card">
+                    <h3>Labortests</h3>
+                    <p>Kalibrierung der Sensoren und Validierung der Filterleistung.</p>
+                </div>
+                <div class="card">
+                    <h3>Bodentests</h3>
+                    <p>Drop-Tests aus 10–30 Metern Höhe zur Landungssicherung.</p>
+                </div>
+                <div class="card">
+                    <h3>Testflüge</h3>
+                    <p>Messkampagnen mit Ballonflügen zur Datenverifikation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>2025 Bio SatTeam.</p>
+    <a href="../impressum/" target="_blank">Impressum</a>
+</footer>
+</body>
+</html>
