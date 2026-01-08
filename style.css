@@ -1,0 +1,420 @@
+/* Basis Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+
+
+h1 {
+    font-size: 10rem;
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #fff;
+
+
+}
+
+
+
+
+
+/* Erde */
+.earth {
+    background: radial-gradient(
+        circle at 50% 120%,
+        #4b55ff 0%,
+        #1a1f4e 40%,
+        #05051a 75%
+    );
+}
+
+.space {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+    overflow: hidden;
+}
+
+/* Reihenfolge: deep unter den stars */
+.layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center center;
+    will-change: transform, opacity;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Deep Space */
+.deep {
+    background-image:
+        url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564");
+    background-size: cover;
+    background-position: center center;
+    opacity: 0; /* startet unsichtbar */
+    z-index: 1;
+}
+.deep::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.3); /* leichte Abdunkelung */
+    pointer-events: none;
+}
+/* Vignette Overlay */
+.deep::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none; /* Overlay blockiert keine Interaktionen */
+}
+/* Sterne */
+.stars {
+    background-image: url("https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3");
+    background-size: cover;
+    background-position: center center;
+    opacity: 5;
+    z-index: 2; /* über deep */
+}
+
+.space::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0,0,0,0) 40%,
+        rgba(0,0,0,0.6) 100%
+    );
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.2; }
+}
+
+
+
+
+
+
+/* Panels / Sections */
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 1.3rem
+;
+    text-align: center;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px) scale(0.98);
+    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Mission Steps Animation */
+.mission-step {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 40px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mission-step.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1.05);
+    transition: opacity 1s cubic-bezier(0.25,0.46,0.45,0.94),
+    transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.team-grid.pyramid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* oberster Teamleiter */
+.team-member.top {
+    margin-bottom: 60px;
+}
+
+.team-row {
+    display: flex;
+    gap: 80px;
+}
+
+/* Zitat-Style */
+.team-member {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.team-member blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 300;
+    color: #e5e5e5;
+    margin-bottom: 15px;
+
+    letter-spacing: 1px;
+    line-height: 1.6;
+    opacity: 0.9;
+
+    /* leichter epischer Einzug */
+    padding: 0 20px;
+}
+
+/* Name */
+.team-member h3 {
+    margin: 5px 0 0 0;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0.85;
+}
+
+/* Rolle */
+.team-member p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #ffffff;
+    opacity: 0.55;
+    letter-spacing: 1px;
+}
+
+/* Links & Buttons */
+a {
+    transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+a:hover {
+    color: #0a84ff;
+}
+
+/* Header */
+header {
+
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#headText{
+
+    text-align: center;
+}
+
+header h1 {
+    animation: textZoom 1.2s ease-out forwards;
+}
+#linksSide {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    list-style: none;
+    padding: 0;
+}
+
+#linksSide li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+#linksSide li a:hover {
+    color: #3ca9f0; /* Farbe beim Hover */
+}
+
+#logo {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: auto;
+    border-radius: 50%; /* rund */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); /* leichter Schatten */
+    z-index: 1000;
+
+    transition: opacity 3s ease-in;
+}
+
+#logo:hover {
+    transform: scale(1.1); /* kleines Hover-Highlight */
+}
+
+@keyframes textZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+header p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    max-width: 800px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Sektionen */
+
+#sponsoren {
+    padding: 0.5rem 20px;
+    color: white;
+    text-align: center;
+}
+
+#sponsoren ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#sponsoren li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sponsoren li a {
+    color: white; /* Textfarbe für die Links */
+    text-decoration: none; /* Unterstreichung entfernen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sponsoren li a:hover {
+    color: white; /* Farbe beim Hover gleich lassen, optional ändern */
+}
+
+#sponsoren li img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+#sponsoren li img:hover {
+    transform: scale(1.1);
+}
+
+/* Optional: Abstand zwischen Bild und Text innerhalb des Links */
+#sponsoren li a span {
+    display: block;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+
+/* Section Titles */
+section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Text */
+section p, section li {
+    font-size: 1.2rem;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* Team Grid */
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Social Media */
+section#socialmedia ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+section#socialmedia ul li a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+section#socialmedia ul li a:hover {
+    color: #0a84ff;
+}
+
+/* Footer */
+footer {
+    padding: 40px 20px;
+    text-align: center;
+
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Responsive */
