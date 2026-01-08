@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         panels.forEach(panel => {
             const top = panel.getBoundingClientRect().top;
-            if(top < triggerPoint){
-                if(!panel.classList.contains('visible')){
+            if (top < triggerPoint) {
+                if (!panel.classList.contains('visible')) {
                     panel.classList.add('visible');
                 }
             }
@@ -29,7 +29,11 @@ window.addEventListener("scroll", () => {
     const p = Math.min(y / (h * 1.5), 1);
 
     const stars = document.querySelector(".stars");
-    const deep  = document.querySelector(".deep");
+    const deep = document.querySelector(".deep");
+
+    if (!stars || !deep) {
+        return;
+    }
 
     // --- Crossfade ---
     stars.style.opacity = 1 - p;
@@ -37,7 +41,7 @@ window.addEventListener("scroll", () => {
 
     // --- Parallax / leichte Animation ---
     stars.style.transform = `translateY(${p * -50}px) scale(${1 + p * 0.05}) rotate(${p * 1}deg)`;
-    deep.style.transform  = `scale(${1 + p * 0.1}) rotate(${p * -2}deg)`;
+    deep.style.transform = `scale(${1 + p * 0.1}) rotate(${p * -2}deg)`;
 });
 
 const texts = {
@@ -45,16 +49,20 @@ const texts = {
         headText: "Unsere Mission: Biologische Proben aus der Luft messen mit unserem innovativen CanSat.",
         teamTitle: "Unser Team",
         teamMembers: [
-            {name: "Noah Heinrich", role: "Projektleiter"},
-            {name: "Martin Reichart", role: "Technische Leitung"},
-            {name: "Jan Koo", role: "Software"}
+            { name: "Noah Heinrich", role: "Projektleiter" },
+            { name: "Martin Reichart", role: "Technische Leitung" },
+            { name: "Jan Koo", role: "Software" }
         ],
         missionTitle: "Unsere Mission",
         missionSteps: [
-            {title: "Aufbau des CanSat", text: "Die Platine ist gebogen, in der Mitte befindet sich ein Ventilator sowie die biologische Probe. Die Konstruktion ist stabil und leicht, um präzise Messungen zu ermöglichen."},
-            {title: "Sensorik & Datenerfassung", text: "Unsere Sensoren erfassen diverse Parameter aus der Umwelt in Echtzeit. Der Ventilator sorgt für konstante Luftzufuhr über die Probe. Alle Daten werden digital gespeichert."},
-            {title: "Analyse & Auswertung", text: "Nach der Landung wird die biologische Probe analysiert."}
+            { title: "Aufbau des CanSat", text: "Die gebogene Platine trägt Ventilator, Filter und Probenträger. Eine vibrationsarme Aufhängung schützt die Probe bei der Landung." },
+            { title: "Sensorik & Datenerfassung", text: "Temperatur, Feuchte, Partikel und Luftdruck werden im Sekundentakt erfasst. Die Telemetrie sendet Live-Daten an die Bodenstation." },
+            { title: "Analyse & Auswertung", text: "Nach der Bergung werden die Filter im Labor ausgewertet und mit den Flugparametern korreliert. So entsteht eine vollständige Bio-Luftkarte." }
         ],
+        techTitle: "Technik im Überblick",
+        timelineTitle: "Meilensteine",
+        faqTitle: "FAQ",
+        contactTitle: "Kontakt",
         sponsorsTitle: "Unsere Sponsoren",
         socialTitle: "Folge uns auf Instagram",
         footerText: "2025 Bio SatTeam.",
@@ -65,16 +73,20 @@ const texts = {
         headText: "Nuestra misión: Medir muestras biológicas del aire con nuestro innovador CanSat.",
         teamTitle: "Nuestro equipo",
         teamMembers: [
-            {name: "Noah Heinrich", role: "Líder del proyecto"},
-            {name: "Martin Reichart", role: "Responsable técnico"},
-            {name: "Jan Koo", role: "Software"}
+            { name: "Noah Heinrich", role: "Líder del proyecto" },
+            { name: "Martin Reichart", role: "Responsable técnico" },
+            { name: "Jan Koo", role: "Software" }
         ],
         missionTitle: "Nuestra misión",
         missionSteps: [
-            {title: "Construcción del CanSat", text: "La placa está doblada, en el centro hay un ventilador y la muestra biológica. La construcción es estable y ligera para permitir mediciones precisas."},
-            {title: "Sensores y recopilación de datos", text: "Nuestros sensores registran diversos parámetros del entorno en tiempo real. El ventilador garantiza un flujo constante de aire sobre la muestra. Todos los datos se almacenan digitalmente."},
-            {title: "Análisis y evaluación", text: "Después del aterrizaje, se analiza la muestra biológica."}
+            { title: "Construcción del CanSat", text: "La placa está doblada y lleva ventilador, filtro y soporte de muestras. La suspensión amortigua el aterrizaje." },
+            { title: "Sensores y recopilación de datos", text: "Temperatura, humedad, partículas y presión se registran cada segundo. La telemetría envía datos en directo." },
+            { title: "Análisis y evaluación", text: "Tras la recuperación, los filtros se analizan en el laboratorio y se comparan con los datos del vuelo." }
         ],
+        techTitle: "Tecnología en resumen",
+        timelineTitle: "Hitos",
+        faqTitle: "Preguntas frecuentes",
+        contactTitle: "Contacto",
         sponsorsTitle: "Nuestros patrocinadores",
         socialTitle: "Síguenos en Instagram",
         footerText: "2025 Bio SatTeam.",
@@ -85,10 +97,16 @@ const texts = {
 
 function changeLanguage(lang) {
     // Header Text
-    document.getElementById("headText").textContent = texts[lang].headText;
+    const headText = document.getElementById("headText");
+    if (headText) {
+        headText.textContent = texts[lang].headText;
+    }
 
     // Team
-    document.querySelector("#team h2").textContent = texts[lang].teamTitle;
+    const teamTitle = document.querySelector("#team h2");
+    if (teamTitle) {
+        teamTitle.textContent = texts[lang].teamTitle;
+    }
     const teamMembers = document.querySelectorAll("#team .team-member");
     teamMembers.forEach((member, index) => {
         if (texts[lang].teamMembers[index]) {
@@ -98,7 +116,10 @@ function changeLanguage(lang) {
     });
 
     // Mission
-    document.querySelector("#mission h2").textContent = texts[lang].missionTitle;
+    const missionTitle = document.querySelector("#mission h2");
+    if (missionTitle) {
+        missionTitle.textContent = texts[lang].missionTitle;
+    }
     const missionSteps = document.querySelectorAll("#mission .mission-text");
     missionSteps.forEach((step, index) => {
         if (texts[lang].missionSteps[index]) {
@@ -107,18 +128,51 @@ function changeLanguage(lang) {
         }
     });
 
+    const techTitle = document.querySelector("#technik h2");
+    if (techTitle) {
+        techTitle.textContent = texts[lang].techTitle;
+    }
+
+    const timelineTitle = document.querySelector("#timeline h2");
+    if (timelineTitle) {
+        timelineTitle.textContent = texts[lang].timelineTitle;
+    }
+
+    const faqTitle = document.querySelector("#faq h2");
+    if (faqTitle) {
+        faqTitle.textContent = texts[lang].faqTitle;
+    }
+
+    const contactTitle = document.querySelector("#kontakt h2");
+    if (contactTitle) {
+        contactTitle.textContent = texts[lang].contactTitle;
+    }
+
     // Sponsoren
-    document.querySelector("#sponsoren h2").textContent = texts[lang].sponsorsTitle;
+    const sponsorTitle = document.querySelector("#sponsoren h2");
+    if (sponsorTitle) {
+        sponsorTitle.textContent = texts[lang].sponsorsTitle;
+    }
 
     // Social Media
-    document.querySelector("#socialMedia h2").textContent = texts[lang].socialTitle;
+    const socialTitle = document.querySelector("#socialMedia h2");
+    if (socialTitle) {
+        socialTitle.textContent = texts[lang].socialTitle;
+    }
 
     // Footer
-    document.querySelector("footer p").textContent = texts[lang].footerText;
-    document.querySelector("footer a").textContent = texts[lang].impressum;
+    const footerText = document.querySelector("footer p");
+    if (footerText) {
+        footerText.textContent = texts[lang].footerText;
+    }
+    const footerLink = document.querySelector("footer a");
+    if (footerLink) {
+        footerLink.textContent = texts[lang].impressum;
+    }
 
     // Blog
-    const blog = document.querySelector("#blog");
-    if (blog) blog.previousElementSibling.textContent = texts[lang].blogTitle;
+    const blogTitle = document.querySelector("#blog h2");
+    if (blogTitle) {
+        blogTitle.textContent = texts[lang].blogTitle;
+    }
 }
-

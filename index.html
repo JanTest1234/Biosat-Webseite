@@ -17,8 +17,6 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_AT">
 
-
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,168 +25,273 @@
     <div class="layer stars"></div>
     <div class="layer deep"></div>
 </div>
-<!-- Header / Titel -->
+
 <header id="header">
     <img src="logo.png" alt="Logo" id="logo">
-    <div class="header-content panel">
+    <div class="header-content">
+        <span class="badge">Schülerforschungsprojekt 2025</span>
         <h1>Bio Sat Team</h1>
         <p id="headText">Unsere Mission: Biologische Proben aus der Luft messen mit unserem innovativen CanSat.</p>
+        <div class="header-actions">
+            <a class="btn btn-primary" href="projekt/">Projekt entdecken</a>
+            <a class="btn btn-outline" href="kontakt/">Kontakt aufnehmen</a>
+        </div>
         <nav>
-            <ul id="linksSide">
+            <ul class="nav-links" id="linksSide">
                 <li><a href="#mission">Mission</a></li>
+                <li><a href="#technik">Technik</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#timeline">Meilensteine</a></li>
                 <li><a href="#sponsoren">Sponsoren</a></li>
-                <li><a href="#socialMedia">Social Media</a></li>
-                <li><a href="#blog"> Blog</a></li>
-                <div id="language-selector">
-                    <label for="lang">Sprache:</label>
-                    <select id="lang" onchange="changeLanguage(this.value)">
-                        <option value="de" selected>Deutsch</option>
-                        <option value="es">Español</option>
-                    </select>
-                </div>
-
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#blog">Blog</a></li>
             </ul>
         </nav>
-      
+        <div class="language-selector" id="language-selector">
+            <label for="lang">Sprache:</label>
+            <select id="lang" onchange="changeLanguage(this.value)">
+                <option value="de" selected>Deutsch</option>
+                <option value="es">Español</option>
+            </select>
+        </div>
+        <div class="hero-card">
+            <p>Wir kombinieren Biologie, Elektronik und Raumfahrttechnik, um biologische Spuren in der Luft sichtbar zu machen. Von der Sensorik über den Datenlogger bis zur Auswertung entsteht ein vollständiges, wissenschaftliches Experiment im Taschenformat.</p>
+            <div class="hero-highlight">
+                <div class="card">
+                    <strong>3</strong>
+                    <span>Forschungsfragen</span>
+                </div>
+                <div class="card">
+                    <strong>12+</strong>
+                    <span>Messkanäle</span>
+                </div>
+                <div class="card">
+                    <strong>2.000 m</strong>
+                    <span>geplante Flughöhe</span>
+                </div>
+            </div>
+        </div>
     </div>
 </header>
 
-
-
-
-<section id="team" class="panel fade-slide">
-    <h2>Unser Team</h2>
-
-    <div class="team-grid pyramid">
-
-        <!-- Teamleiter oben -->
-        <div class="team-member top">
-            <h3>Noah Heinrich</h3>
-            <p>Projektleiter</p>
-
-        </div>
-
-        <!-- Zwei darunter -->
-        <div class="team-row">
-            <div class="team-member">
-                <h3>Martin Reichart</h3>
-                <p>Technische Leitung</p>
-
-            </div>
-
-            <div class="team-member">
-                <h3>Jan Koo</h3>
-                <p>Software</p>
-
-            </div>
-        </div>
-
-    </div>
-</section>
-<!-- Mission Sektion -->
 <section id="mission" class="panel">
-    <h2>Unsere Mission</h2>
+    <div class="container">
+        <h2>Unsere Mission</h2>
+        <p class="section-intro">Wir möchten zeigen, wie sich biologische Proben aus der Atmosphäre gewinnen und wissenschaftlich auswerten lassen. Unser CanSat bildet die vollständige Prozesskette ab – vom Sammeln bis zur Analyse.</p>
 
-    <div class="mission-step fade-slide">
-        <div class="mission-content left">
+        <div class="mission-step">
+            <div class="mission-content left">
+                <div class="mission-text">
+                    <h3>Aufbau des CanSat</h3>
+                    <p>Die gebogene Platine trägt Ventilator, Filter und Probenträger. Eine vibrationsarme Aufhängung schützt die Probe bei der Landung.</p>
+                </div>
+            </div>
+        </div>
 
-            <div class="mission-text">
-                <h3>Aufbau des CanSat</h3>
-                <p>Die Platine ist gebogen, in der Mitte befindet sich ein Ventilator sowie die biologische Probe. Die Konstruktion ist stabil und leicht, um präzise Messungen zu ermöglichen.</p>
+        <div class="mission-step">
+            <div class="mission-content right">
+                <div class="mission-text">
+                    <h3>Sensorik & Datenerfassung</h3>
+                    <p>Temperatur, Feuchte, Partikel und Luftdruck werden im Sekundentakt erfasst. Die Telemetrie sendet Live-Daten an die Bodenstation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mission-step">
+            <div class="mission-content left">
+                <div class="mission-text">
+                    <h3>Analyse & Auswertung</h3>
+                    <p>Nach der Bergung werden die Filter im Labor ausgewertet und mit den Flugparametern korreliert. So entsteht eine vollständige Bio-Luftkarte.</p>
+                </div>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="mission-step fade-slide">
-        <div class="mission-content right">
-
-            <div class="mission-text">
-                <h3>Sensorik & Datenerfassung</h3>
-                <p>Unsere Sensoren erfassen diverse Parameter aus der Umwelt in Echtzeit. Der Ventilator sorgt für konstante Luftzufuhr über die Probe. Alle Daten werden digital gespeichert.</p>
+<section id="technik" class="panel">
+    <div class="container">
+        <h2>Technik im Überblick</h2>
+        <p class="section-intro">Unsere Systemarchitektur ist modular aufgebaut. Jeder Bereich kann eigenständig getestet und optimiert werden – ideal für iterative Verbesserungen.</p>
+        <div class="card-grid grid-3">
+            <div class="card">
+                <h3>Sensorik</h3>
+                <p>Partikel- und Umweltmessung mit kalibrierten Modulen sowie Echtzeit-Logging auf SD-Karte.</p>
+            </div>
+            <div class="card">
+                <h3>Mechanik</h3>
+                <p>Leichter Aluminiumrahmen, stoßfeste Aufhängung und ein optimierter Luftstromkanal für die Probe.</p>
+            </div>
+            <div class="card">
+                <h3>Software</h3>
+                <p>Datenpipeline mit Telemetrie, Onboard-Checks und automatischer Exportstruktur für die Analyse.</p>
+            </div>
+        </div>
+        <div class="cta-band" style="margin-top: 32px;">
+            <div>
+                <h3>Mehr Details?</h3>
+                <p>Unsere Unterseiten geben Einblick in Projektstruktur, Team und Messmethodik.</p>
+            </div>
+            <div class="header-actions">
+                <a class="btn btn-primary" href="projekt/">Zum Projekt</a>
+                <a class="btn btn-outline" href="team/">Zum Team</a>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="mission-step fade-slide">
-        <div class="mission-content left">
-
-            <div class="mission-text">
-                <h3>Analyse & Auswertung</h3>
-                <p>Nach der Landung wird die biologische Probe analysiert.</p>
+<section id="team" class="panel">
+    <div class="container">
+        <h2>Unser Team</h2>
+        <p class="section-intro">Drei Rollen, eine Mission: gemeinsam entwickeln wir Hardware, Software und wissenschaftliche Methodik.</p>
+        <div class="team-grid pyramid">
+            <div class="team-member top">
+                <h3>Noah Heinrich</h3>
+                <p>Projektleiter</p>
+            </div>
+            <div class="team-row">
+                <div class="team-member">
+                    <h3>Martin Reichart</h3>
+                    <p>Technische Leitung</p>
+                </div>
+                <div class="team-member">
+                    <h3>Jan Koo</h3>
+                    <p>Software</p>
+                </div>
             </div>
         </div>
     </div>
-
-
 </section>
 
-
-
-
-<!-- Sponsoren Sektion -->
-<section id="sponsoren" class="panel fade-slide">
-    <h2>Unsere Sponsoren</h2>
-    <ul>
-        <li>
-            <a href="https://www.originalblaudruck.at/" target="_blank">
-                <img src="images/blaudruck-logo.png" alt="Blaudruck Koó Logo" width="50" height="50">
-                Blaudruck Koó
-            </a>
-        </li>
-        <li>
-            <a href="https://www.burgenlandenergie.at/de/privat/" target="_blank">
-                <img src="images/besolution-logo.png" alt="BE Solution Logo" width="50" height="50">
-                BE-Solution
-
-            </a>
-        </li>
-        <li>
-            <a href="https://preworks.at/" target="_blank">
-                <img src="images/preworks-logo.png" alt="Preworks Logo" width="50" height="50">
-                Preworks
-            </a>
-        </li>
-        <li>
-            <a href="https://www.consult-it.biz/" target="_blank">
-                <img src="images/consultit-logo.png" alt="Consult IT Logo" width="50" height="50">
-                Consult IT
-            </a>
-        </li>
-    </ul>
+<section id="timeline" class="panel">
+    <div class="container">
+        <h2>Meilensteine</h2>
+        <p class="section-intro">Von der Idee bis zum Start: Wir planen in klaren Etappen und überprüfen jede Baugruppe systematisch.</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span>Phase 1</span>
+                <h3>Konzept & Simulation</h3>
+                <p>Ideenfindung, Risikobewertung und erste Luftstromtests am Modell.</p>
+            </div>
+            <div class="timeline-item">
+                <span>Phase 2</span>
+                <h3>Prototyp & Integration</h3>
+                <p>Aufbau des CanSat-Systems, Integration von Sensorik und Telemetrie.</p>
+            </div>
+            <div class="timeline-item">
+                <span>Phase 3</span>
+                <h3>Testflüge & Analyse</h3>
+                <p>Erste Teststarts, Datenauswertung und Optimierung der Probennahme.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-
-<section id="socialMedia" class="panel fade-slide" style="text-align:center; padding:40px 0;">
-    <h2>Folge uns auf Instagram</h2>
-
-    <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-40b1111b-9130-43ef-863c-4cecaa57f129" data-elfsight-app-lazy></div>
-
+<section id="sponsoren" class="panel">
+    <div class="container">
+        <h2>Unsere Sponsoren</h2>
+        <p class="section-intro">Ohne starke Partner wäre dieses Projekt nicht möglich. Vielen Dank für die Unterstützung!</p>
+        <ul>
+            <li>
+                <a href="https://www.originalblaudruck.at/" target="_blank" rel="noreferrer">
+                    <img src="images/blaudruck-logo.png" alt="Blaudruck Koó Logo" width="50" height="50">
+                    Blaudruck Koó
+                </a>
+            </li>
+            <li>
+                <a href="https://www.burgenlandenergie.at/de/privat/" target="_blank" rel="noreferrer">
+                    <img src="images/besolution-logo.png" alt="BE Solution Logo" width="50" height="50">
+                    BE-Solution
+                </a>
+            </li>
+            <li>
+                <a href="https://preworks.at/" target="_blank" rel="noreferrer">
+                    <img src="images/preworks-logo.png" alt="Preworks Logo" width="50" height="50">
+                    Preworks
+                </a>
+            </li>
+            <li>
+                <a href="https://www.consult-it.biz/" target="_blank" rel="noreferrer">
+                    <img src="images/consultit-logo.png" alt="Consult IT Logo" width="50" height="50">
+                    Consult IT
+                </a>
+            </li>
+        </ul>
+        <div class="cta-band" style="margin-top: 32px;">
+            <div>
+                <h3>Partner werden</h3>
+                <p>Wir freuen uns über neue Unterstützer – von Materialien bis zu Expertenwissen.</p>
+            </div>
+            <a class="btn btn-primary" href="sponsoren/">Sponsoring Infos</a>
+        </div>
+    </div>
 </section>
 
-<!-- Elfsight Blog | Untitled Blog -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-92f09291-de4c-4c50-a711-b0ddf5e5711f" id="blog" data-elfsight-app-lazy></div>
+<section id="faq" class="panel">
+    <div class="container">
+        <h2>FAQ</h2>
+        <p class="section-intro">Die wichtigsten Antworten rund um das Projekt, kurz und übersichtlich.</p>
+        <div class="faq">
+            <div class="card">
+                <h3>Warum biologisches Sampling?</h3>
+                <p>Wir untersuchen, ob biologische Partikel in verschiedenen Höhen variieren und welche Umweltfaktoren sie beeinflussen.</p>
+            </div>
+            <div class="card">
+                <h3>Wie wird die Probe geschützt?</h3>
+                <p>Die Probe liegt in einer gekapselten Halterung mit definiertem Luftstrom – damit bleibt sie während des Fluges stabil.</p>
+            </div>
+            <div class="card">
+                <h3>Wann ist der Start geplant?</h3>
+                <p>Die aktuelle Planung sieht Testflüge im Frühjahr und den Hauptstart im Sommer vor.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div class="stars">
-    <span style="top:10%; left:20%"></span>
-    <span style="top:50%; left:80%"></span>
-    <span style="top:30%; left:40%"></span>
-    <span style="top:70%; left:60%"></span>
-    <span style="top:90%; left:10%"></span>
-</div>
-<div class="bg-space"></div>
-<!-- Footer -->
+<section id="kontakt" class="panel">
+    <div class="container">
+        <h2>Kontakt</h2>
+        <p class="section-intro">Du möchtest mehr erfahren, Sponsor werden oder mit uns zusammenarbeiten? Schreib uns!</p>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h3>E-Mail</h3>
+                <p><a href="mailto:team@biosat.at">team@biosat.at</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>Schule</h3>
+                <p>BRG Oberpullendorf<br>7453 Oberpullendorf</p>
+            </div>
+            <div class="contact-item">
+                <h3>Social Media</h3>
+                <p><a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram Profil</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="socialMedia" class="panel" style="text-align:center; padding:40px 0;">
+    <div class="container">
+        <h2>Folge uns auf Instagram</h2>
+        <p class="section-intro">Behind the scenes, Testaufbauten und Updates direkt aus dem Projektalltag.</p>
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-40b1111b-9130-43ef-863c-4cecaa57f129" data-elfsight-app-lazy></div>
+    </div>
+</section>
+
+<section id="blog" class="panel" style="padding:40px 0;">
+    <div class="container">
+        <h2>Blog</h2>
+        <p class="section-intro">Hier dokumentieren wir Fortschritte, Testberichte und Ergebnisse.</p>
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-92f09291-de4c-4c50-a711-b0ddf5e5711f" data-elfsight-app-lazy></div>
+    </div>
+</section>
+
 <footer>
-    <p> 2025 Bio SatTeam.</p>
-    <a href="impressum.html" target="_blank">Impressum</a>
-
-
+    <p>2025 Bio SatTeam.</p>
+    <a href="impressum/" target="_blank">Impressum</a>
 </footer>
 
-
-
-</body>
 <script src="script.js"></script>
+</body>
 </html>
